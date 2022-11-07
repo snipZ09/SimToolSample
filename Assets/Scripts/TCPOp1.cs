@@ -36,18 +36,18 @@ public class TCPOp1 : MonoBehaviour
 
             Console.WriteLine("Sent: {0}", message);
 
-            // Receive the server response.
+            //// Receive the server response.
 
-            // Buffer to store the response bytes.
-            data = new Byte[256];
+            //// Buffer to store the response bytes.
+            //data = new Byte[256];
 
-            // String to store the response ASCII representation.
-            String responseData = String.Empty;
+            //// String to store the response ASCII representation.
+            //String responseData = String.Empty;
 
-            // Read the first batch of the TcpServer response bytes.
-            Int32 bytes = stream.Read(data, 0, data.Length);
-            responseData = System.Text.Encoding.ASCII.GetString(data, 0, bytes);
-            Console.WriteLine("Received: {0}", responseData);
+            //// Read the first batch of the TcpServer response bytes.
+            //Int32 bytes = stream.Read(data, 0, data.Length);
+            //responseData = System.Text.Encoding.ASCII.GetString(data, 0, bytes);
+            //Console.WriteLine("Received: {0}", responseData);
 
             // Explicit close is not necessary since TcpClient.Dispose() will be
             // called automatically.
@@ -62,9 +62,12 @@ public class TCPOp1 : MonoBehaviour
         {
             Console.WriteLine("SocketException: {0}", e);
         }
+    }
 
-        Console.WriteLine("\n Press Enter to continue...");
-        Console.Read();
+    public static void CloseConnect()
+    {
+        stream.Close();
+        client.Close();
     }
 
     private static bool SendMessageToServer(string str)

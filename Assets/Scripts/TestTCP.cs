@@ -100,8 +100,6 @@ public class TestTCP : MonoBehaviour
 	// Token: 0x040004CA RID: 1226
 	private byte[] UTF8bytes;
 
-	[SerializeField] private TCPOp1 TCPOp1;
-
 	// Token: 0x040004CB RID: 1227
 	private List<string> liststring;
 	// Start is called before the first frame update
@@ -185,7 +183,7 @@ public class TestTCP : MonoBehaviour
 
     private void OnDestroy()
 	{
-		//TCPOp1.CloseConnect();
+		TCPOp1.CloseConnect();
     }
 
 	public void StopRotation()
