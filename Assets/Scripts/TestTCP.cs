@@ -129,7 +129,7 @@ public class TestTCP : MonoBehaviour
 			//base.transform.Translate(this.m_Camera_eye.transform.localRotation * Vector3.forward / 3f);
 			if (!this.IsDownFen)
 			{
-				TCPOp1.Fan(3);
+				TCPOp.Fan(3);
 				this.IsUpFen = false;
 				this.IsDownFen = true;
 				this.IsNomeFen = false;
