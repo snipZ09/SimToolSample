@@ -105,18 +105,16 @@ public class TestTCP : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
     {
-		//TCPOp1.OpenConnect();
-		TCPOp1.Connect();
-
+		TCPOp.OpenConnect();
 		//var remotePoint = new IPEndPoint(IPAddress.Parse("192.168.15.100"), 7408);
 		//Debug.Log(remotePoint);
-	}
+    }
 
 	private void FixedUpdate()
 	{
 		if (Input.GetKey(KeyCode.Escape))
 		{
-			//TCPOp1.CloseConnect();
+			TCPOp.CloseConnect();
 			Application.Quit();
 		}
 		this.SetPlayerRotation();
@@ -141,7 +139,7 @@ public class TestTCP : MonoBehaviour
 		{
 			if (!this.IsNomeFen)
 			{
-				TCPOp1.Fan(0);
+				TCPOp.Fan(0);
 				this.IsNomeFen = true;
 				this.IsUpFen = false;
 				this.IsDownFen = false;
@@ -158,7 +156,7 @@ public class TestTCP : MonoBehaviour
 		{
 			if (this.TurnLfet)
 			{
-				TCPOp1.LeftHandedRotation(25);
+				TCPOp.LeftHandedRotation(25);
 				this.TurnLfet = false;
 				this.bool1 = true;
 			}
@@ -167,14 +165,14 @@ public class TestTCP : MonoBehaviour
 		{
 			if (this.TurnRight)
 			{
-				TCPOp1.RightHandedRotation(25);
+				TCPOp.RightHandedRotation(25);
 				this.TurnRight = false;
 				this.bool1 = true;
 			}
 		}
 		else if (this.bool1)
 		{
-			TCPOp1.StopRotation();
+			TCPOp.StopRotation();
 			this.TurnLfet = true;
 			this.TurnRight = true;
 			this.bool1 = false;
@@ -188,27 +186,27 @@ public class TestTCP : MonoBehaviour
 
 	public void StopRotation()
     {
-		TCPOp1.StopRotation();
+		TCPOp.StopRotation();
     }
 
 	public void SerialRestart()
     {
-		TCPOp1.SerialRestart();
+		TCPOp.SerialRestart();
     }
 
 	//public void ElectricCylinderDistance()
  //   {
-	//	TCPOp1.ElectricCylinderDistance(1000, 50, false);
+	//	TCPOp.ElectricCylinderDistance(1000, 50, false);
 	//}
 
 	public void LeftPositionRotation(int pos)
 	{
-		TCPOp1.LeftPositionRotation(1, pos);
+		TCPOp.LeftPositionRotation(1, pos);
 	}
 	
 	public void RightPositionRotation(int pos)
     {
-		TCPOp1.RightPositionRotation(1, pos);
+		TCPOp.RightPositionRotation(1, pos);
     }
 
 	private void FristUp()
@@ -258,7 +256,7 @@ public class TestTCP : MonoBehaviour
 				pos = this.DouDongDicDown;
 			}
 		}
-		TCPOp1.ElectricCylinderSin(20, pos, false);
+		TCPOp.ElectricCylinderSin(20, pos, false);
 	}
 
 	// Token: 0x06000358 RID: 856 RVA: 0x0001A044 File Offset: 0x00018444
@@ -285,7 +283,7 @@ public class TestTCP : MonoBehaviour
 			}
 		}
 		//Debug.Log("UpDouDong" + pos);
-		TCPOp1.ElectricCylinderSin(20, pos, false);
+		TCPOp.ElectricCylinderSin(20, pos, false);
 	}
 
 	private void CamMove()
@@ -317,7 +315,7 @@ public class TestTCP : MonoBehaviour
 				this.b_Rise = false;
 				if (!this.IsUpFen)
 				{
-					TCPOp1.Fan(4);
+					TCPOp.Fan(4);
 					this.IsDownFen = false;
 					this.IsUpFen = true;
 					this.IsNomeFen = false;
@@ -349,7 +347,7 @@ public class TestTCP : MonoBehaviour
 							this.distance = 0;
 						}
 						//MonoBehaviour.print("上升" + this.distance);
-						TCPOp1.ElectricCylinderSin(20, this.distance, false);
+						TCPOp.ElectricCylinderSin(20, this.distance, false);
 					}
 					else
 					{
@@ -393,7 +391,7 @@ public class TestTCP : MonoBehaviour
 						{
 							this.distance = 100;
 						}
-						TCPOp1.ElectricCylinderSin(20, this.distance, false);
+						TCPOp.ElectricCylinderSin(20, this.distance, false);
 					}
 					else
 					{
